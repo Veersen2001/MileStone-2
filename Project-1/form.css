@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border: 1px solid grey;
+  gap: 30px;
+  max-width: 600px;
+  top: 50px;
+  margin: auto;
+}
+input {
+  padding: 10px 20px;
+  min-width: 500px;
+  margin: auto;
+}
+textarea {
+  margin: auto;
+}

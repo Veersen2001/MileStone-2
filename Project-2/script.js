@@ -29,14 +29,13 @@ async function searchMovie() {
 }
 
 function displayMovieDetails(movie) {
+  
   movieDetailsDiv.innerHTML = `
-    <h1> you can't download !sorry..<h1>
-    <h2>${movie.Title}</h2>
-    <img src="${movie.Poster}" alt="${movie.Title} Poster">
-    <p><strong>Year:</strong> ${movie.Year}</p>
-    <p><strong>Director:</strong> ${movie.Director}</p>
-    <p><strong>Actors:</strong> ${movie.Actors}</p>
-    <p><strong>Plot:</strong> ${movie.Plot}</p>
-    <p><strong>IMDb Rating:</strong> ${movie.imdbRating}</p>
+  
+    
+    <h2 style="color:#fff;">${movie.Title}</h2>
+    <img style ="height:500px;width:400px" src="${movie.Poster}" alt="${movie.Title} Poster">
+    <button style=" background-color:red ">Download</button>
+  
   `;
 }
