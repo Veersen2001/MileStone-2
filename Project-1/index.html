@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
+<!-- Home Page -->
     <h1>PWSkills Blog</h1>
     <button id="addBlog">+</button>
 
     <div id="container">
         <div id="userBlog">
         <img src="https://images.pexels.com/photos/15679391/pexels-photo-15679391/free-photo-of-spikes-and-painting-in-home-decor.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Img" id="userImg">
-        <h3 class="title">Blog Title</h3>
+        <h3 id="BlogTitle"></h3>
         <p id="description">hello</p>
         <Button id="readBlog">Read</Button>
 
@@ -22,6 +22,21 @@
        
         
     </div>
+
+
+    <!--Add blog form -->
+    <div class="form-popup" id="myForm">
+        <button id="closePage">+</button>
+        <form action="" id="blogForm">
+            <input type="text" name="url" id="postUrl" placeholder="Enter Blog Post URL:">
+            <input type="text" name="title" id="blogTitle" placeholder="Enter Blog Title:">
+            <input type="text" name="" id="blogDescription" placeholder="Enter Blog Description:">
+            <textarea name="blog" id="writeBlog" cols="70" rows="20" placeholder=" Write:"></textarea>
+            <button type="submit" id="AddBlog">Add Blog</button>
+        </form>
+    </div>
+
+
     <script src="./script.js"></script>
 </body>
 </html>
