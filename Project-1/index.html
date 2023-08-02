@@ -12,11 +12,11 @@
     <!-- Home Page -->
     <h1>PWSkills Blog</h1>
     <button id="addBlog">+</button>
-
     <div id="container">
         <!-- user blog here -->
 
     </div>
+
 
     <button id="back_home">&larr;</button>
     <div class="blogContainer">
@@ -24,13 +24,17 @@
     </div>
 
 
+
+
+
     <!--Add blog form -->
-    <div class="form-popup" id="myForm">
+    <div class=" form-popup" id="myForm">
         <button id="closePage">+</button>
         <form action="" id="blogForm">
-            <input type="text" name="url" id="postUrl" placeholder="Enter Blog Post URL:">
-            <input type="text" name="title" id="blogTitle" placeholder="Enter Blog Title:">
-            <input type="text" name="" id="blogDescription" placeholder="Enter Blog Description:">
+            <input type="text" name="url" id="postUrl" placeholder="Enter Blog Post URL:" required autocomplete="off">
+            <input type="text" name="title" id="blogTitle" placeholder="Enter Blog Title:" required>
+            <input type="text" name="" id="blogDescription" placeholder="Enter Blog Description:" required
+                autocomplete="off">
             <textarea name="blog" id="writeBlog" cols="70" rows="20" placeholder=" Write:"></textarea>
             <button type="submit" id="AddBlog">Add Blog</button>
         </form>

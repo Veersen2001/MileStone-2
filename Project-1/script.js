@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded" , ()=>{
   const backArrow = document.getElementById('back_home');
  
   
-
-
   // Function to fetch existing blog from Localstorage
 
   function getBlogs()
@@ -43,79 +41,102 @@ document.addEventListener("DOMContentLoaded" , ()=>{
    const blogs = getBlogs()
    blogs.push(newBlog)
    saveBlog(blogs)
-
-    document.getElementById("myForm").style.display = "none"
-
+   console.log('envrnt',event);
   
-    displayBlogs();
+   closeModal()
+   displayBlogs();
+   BlogForm.reset()
+  
   }
+
   // Function to display all blocks on the home page
   function displayBlogs()
   {
+
     const blogs = getBlogs()
     Container.innerHTML = "";
     blogs.forEach((blog)=> {
       const blogElement = document.createElement("div")
       const ReadBlog = document.createElement('button')
       ReadBlog.id='readBlog'
-      ReadBlog.textContent = "read Blog"
+      ReadBlog.textContent="Read Blog"
       blogElement.className="userBlog"
       blogElement.classList.add("blog-post")
       blogElement.innerHTML = `
-        <img src="${blog.postUrl}">
-        <h3>${blog.title}</h3>
-        <p>${blog.description}</p>
+      <img src="${blog.postUrl}">
+      <h3>${blog.title}</h3>
+      <p>${blog.description}</p>
       `
-      console.log(blog.title);
-      Container.appendChild(blogElement)
       blogElement.appendChild(ReadBlog)
-      ReadBlog.addEventListener("click", () => displayBlogPage(blog))
+     
+      ReadBlog.addEventListener('click',()=>displayBlogsPage(blog))
+      Container.appendChild(blogElement)
 
+      
     })
   }
+  
+ //  read blog 
 
-
-    function displayBlogPage(blog){
-     backArrow.style.display = "block"
-    blogContainer.appendChild(backArrow);
-    
+  function displayBlogsPage(blog){
+    blogContainer.innerHTML = "";
+     const displayContainer = blogContainer.style.display;
+     if(displayContainer=="block")
+     {
+      blogContainer.style.display = "none"
+       
+     }
+     else{
+      blogContainer.style.display = "block"
+     }
+    backArrow.style.display="block"
+    blogContainer.appendChild(backArrow)
     const blogInfo=document.createElement('div')
     blogInfo.className = 'blogInfo'
-     blogInfo.innerHTML = `
-      <div>
-       <h3>${blog.title}</h3>
-       <p>${blog.description}</p>
-       </div>
-        <img src="${blog.postUrl}">
-      `
-    blogContainer.appendChild(blogInfo)
-
-    const blogContent=document.createElement('div')
-     blogContent.className = 'blogContent'
-      blogContent.innerHTML = `
-     <p>${blog.content}</p>
+    blogInfo.innerHTML = `
+    <div>
+    <h3>${blog.title}</h3>
+    <p>${blog.description}</p>
+    </div>
+    <img src="${blog.postUrl}">
     `
+    const blogContent=document.createElement('div')
+    blogContent.className = 'blogContent'
+    blogContent.innerHTML = `
+    <p>${blog.content}</p>
+
+    `
+
+
+    blogContainer.appendChild(blogInfo)
     blogContainer.appendChild(blogContent);
-    
-    backArrow.addEventListener('click',backHome)
+  
    }
+
+    backArrow.addEventListener('click',()=>{
+      
+      blogContainer.style.display="none"
+     
+    })
+    
+    
+
    
-  //  
-   function backHome()
-   {
-    
-   }
 
-  // open add blog form
-  addBlog.addEventListener("click", () => {
-    document.getElementById("myForm").style.display = "block"
-  })
+   function showModal() {
+      document.getElementById('myForm').style.display = "block"
+  }
 
-  // close add blog form
-  closePage.addEventListener("click", () => {
-    document.getElementById("myForm").style.display = "none"
-  })
+  // Function to close the modal
+  function closeModal() {
+      myForm.style.display = "none"
+  }
 
+  // Event listeners
+  addBlog.addEventListener("click", showModal)
+  closePage.addEventListener("click", closeModal)
+   
+  
   // Event Listeners
   BlogForm.addEventListener("submit",StoreBlog);
 
