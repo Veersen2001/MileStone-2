@@ -15,7 +15,9 @@ async function searchMovie() {
 
   try {
     const response = await fetch(` http://www.omdbapi.com/?t=${movieTitle}&apikey=${apiKey}`);
+    console.log(response);
     const data = await response.json();
+    console.log(data);
 
     if (data.Response === 'False') {
       alert('Movie not found. Please try again.');
